@@ -116,5 +116,8 @@ instance Binary QuestionType where
 
 ----------
 
-exampleQuestion = Question (Name (map B8.pack ["www", "looktothestars", "org"])) MX ICDefault
+nameFromString :: [String] -> Name
+nameFromString parts = Name (map B8.pack parts)
+
+exampleQuestion = Question (nameFromString ["www", "looktothestars", "org"]) MX ICDefault
 exampleMessage = Message 1 0 [exampleQuestion] [] [] []
